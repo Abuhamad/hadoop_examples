@@ -72,7 +72,7 @@ Run the jobs
 		
         hadoop fs -cat /user/$USER/weather/sorted_out/part-r-00000 | head
 
-Note: If an output directory already exists, delete it before rerunning:
+**Note:** If an output directory already exists, delete it before rerunning:
 
 		hadoop fs -rm -r /user/$USER/weather/mean_out
 		
