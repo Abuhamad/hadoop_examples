@@ -6,7 +6,7 @@ WordCount output and keep only the Top N in memory, which scales better.
 Compile and Run Java MapReduce Code
 ===================================
 
-1) Write Your MapReduce Code
+## 1) Write Your MapReduce Code
 ----------------------------
 Save your MapReduce program in a Java file. This folder includes:
 
@@ -14,7 +14,7 @@ Save your MapReduce program in a Java file. This folder includes:
 - TopNv2.java -> class `TopNv2` (reads WordCount output, top 20)
 - TopNv3Dynamic.java -> class `DynamicTopN` (reads WordCount output, top N via -n)
 
-2) Compile the Java Code
+## 2) Compile the Java Code
 ------------------------
 Use javac and include the Hadoop classpath:
 
@@ -23,7 +23,7 @@ Use javac and include the Hadoop classpath:
 - `-classpath`: Adds Hadoop libraries to the compiler classpath.
 - `-d .`: Writes the compiled .class files to the current directory.
 
-3) Package the Compiled Classes into a JAR
+## 3) Package the Compiled Classes into a JAR
 -----------------------------------------
 Create a JAR file from the compiled classes:
 
@@ -32,7 +32,7 @@ Create a JAR file from the compiled classes:
 - `-cvf`: Creates a JAR file named TopN.jar.
 - `-C . .`: Includes all compiled classes in the current directory.
 
-4) Run the MapReduce Jobs
+## 4) Run the MapReduce Jobs
 -------------------------
 `TopNv1` (one job, does WordCount and top 20 in the reducer):
 
@@ -46,12 +46,12 @@ Create a JAR file from the compiled classes:
 
 	hadoop jar TopN.jar DynamicTopN -n=50 /wordcount_out /topn_v3_out
 
-Notes:
+**Notes:**
 
 - Use a WordCount job first to create `/wordcount_out` for `TopNv2` and `DynamicTopN`.
 - Output directories must not exist before running.
 
-5) Check the Output
+## 5) Check the Output
 -------------------
 View the job output:
 
