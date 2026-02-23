@@ -15,18 +15,18 @@ Example data is in Assets/WeatherAnalysis/milano_temps.csv.
 
 Jobs (simple description)
 -------------------------
-Mean.java
+`Mean.java`
 - Mapper parses each line, groups max temperatures by month (MMyyyy), and emits
 	a SumCount (sum and count) in cleanup to reduce network traffic.
 - Reducer merges SumCount values and outputs the mean max temperature per month.
 
-WeatherStats.java
+`WeatherStats.java`
 - Mapper performs in-mapper combining and builds partial stats per month for one
 	target column (column 2 by default: max temperature).
 - Reducer merges stats and outputs: min, max, mean, and standard deviation per
 	month.
 
-SortWeather.java
+`SortWeather.java`
 - Mapper reads WeatherStats output, extracts the Mean value, and emits it as the
 	key so Hadoop can sort by temperature.
 - Custom comparator sorts mean temperature in descending order.
@@ -35,7 +35,7 @@ SortWeather.java
 
 Build a runnable jar
 --------------------
-From the WeatherAnalysis directory:
+From the `WeatherAnalysis` directory:
 
 		mkdir -p build/classes
 		
@@ -52,7 +52,7 @@ Run the jobs
 		
         hadoop fs -copyFromLocal Assets/WeatherAnalysis/milano_temps.csv /user/$USER/weather/input/
 
-2) Run Mean and WeatherStats:
+2) Run `Mean` and `WeatherStats`:
 
 		hadoop jar weather-analysis.jar Mean \
 				/user/$USER/weather/input /user/$USER/weather/mean_out
@@ -72,6 +72,7 @@ Run the jobs
         hadoop fs -cat /user/$USER/weather/stats_out/part-r-00000 | head
 		
         hadoop fs -cat /user/$USER/weather/sorted_out/part-r-00000 | head
+
 
 **Note:** If an output directory already exists, delete it before rerunning:
 
