@@ -1,3 +1,4 @@
+# WordCount MapReduce
 This folder contains Hadoop MapReduce examples for processing text data. The
 primary program is a WordCount job that reads lines of text, emits each word as
 a key with count 1, and then reduces those counts to totals per word. The steps
