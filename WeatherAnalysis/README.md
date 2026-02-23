@@ -49,7 +49,8 @@ Run the jobs
 1) Put input on HDFS (example path):
 
 		hadoop fs -mkdir -p /user/$USER/weather/input
-		hadoop fs -copyFromLocal Assets/WeatherAnalysis/milano_temps.csv /user/$USER/weather/input/
+		
+        hadoop fs -copyFromLocal Assets/WeatherAnalysis/milano_temps.csv /user/$USER/weather/input/
 
 2) Run Mean and WeatherStats:
 
