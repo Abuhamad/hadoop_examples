@@ -38,16 +38,18 @@ Build a runnable jar
 From the WeatherAnalysis directory:
 
 		mkdir -p build/classes
-		javac -classpath "$(hadoop classpath)" -d build/classes \
+		
+        javac -classpath "$(hadoop classpath)" -d build/classes \
 				Mean.java WeatherStats.java SortWeather.java
-		jar -cvf weather-analysis.jar -C build/classes .
+		
+        jar -cvf weather-analysis.jar -C build/classes .
 
 Run the jobs
 ------------
 1) Put input on HDFS (example path):
 
-		hdfs dfs -mkdir -p /user/$USER/weather/input
-		hdfs dfs -put Assets/WeatherAnalysis/milano_temps.csv /user/$USER/weather/input/
+		hadoop fs -mkdir -p /user/$USER/weather/input
+		hadoop fs -copyFromLocal Assets/WeatherAnalysis/milano_temps.csv /user/$USER/weather/input/
 
 2) Run Mean and WeatherStats:
 
@@ -64,12 +66,16 @@ Run the jobs
 
 4) View results:
 
-		hdfs dfs -cat /user/$USER/weather/mean_out/part-r-00000 | head
-		hdfs dfs -cat /user/$USER/weather/stats_out/part-r-00000 | head
-		hdfs dfs -cat /user/$USER/weather/sorted_out/part-r-00000 | head
+		hadoop fs -cat /user/$USER/weather/mean_out/part-r-00000 | head
+		
+        hadoop fs -cat /user/$USER/weather/stats_out/part-r-00000 | head
+		
+        hadoop fs -cat /user/$USER/weather/sorted_out/part-r-00000 | head
 
 Note: If an output directory already exists, delete it before rerunning:
 
-		hdfs dfs -rm -r /user/$USER/weather/mean_out
-		hdfs dfs -rm -r /user/$USER/weather/stats_out
-		hdfs dfs -rm -r /user/$USER/weather/sorted_out
+		hadoop fs -rm -r /user/$USER/weather/mean_out
+		
+        hadoop fs -rm -r /user/$USER/weather/stats_out
+		
+        hadoop fs -rm -r /user/$USER/weather/sorted_out
