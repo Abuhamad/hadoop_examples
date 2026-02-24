@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class WordCount3 {
+public class WordCountV3 {
 
     public static class TokenizerMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
@@ -95,12 +95,12 @@ public class WordCount3 {
         String[] remainingArgs = optionParser.getRemainingArgs();
 
         if (remainingArgs.length != 3) {
-            System.err.println("Usage: WordCount3 <in> <out> <skip_file_path>");
+            System.err.println("Usage: WordCountV3 <in> <out> <skip_file_path>");
             System.exit(2);
         }
 
         Job job = Job.getInstance(conf, "Word Count v3");
-        job.setJarByClass(WordCount3.class);
+        job.setJarByClass(WordCountV3.class);
         job.setMapperClass(TokenizerMapper.class);
         job.setCombinerClass(IntSumReducer.class);
         job.setReducerClass(IntSumReducer.class);

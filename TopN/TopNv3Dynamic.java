@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class DynamicTopN {
+public class TopNv3Dynamic {
 
     /**
      * Mapper: Reads Word Count output. 
@@ -123,7 +123,7 @@ public class DynamicTopN {
         }
 
         if (inputPath == null || outputPath == null) {
-            System.err.println("Usage: DynamicTopN [-n=<number>] <in_from_wordcount> <out>");
+            System.err.println("Usage: TopNv3Dynamic [-n=<number>] <in_from_wordcount> <out>");
             System.exit(2);
         }
 
@@ -131,7 +131,7 @@ public class DynamicTopN {
         conf.setInt("top.n.value", nValue);
 
         Job job = Job.getInstance(conf, "Dynamic Top N");
-        job.setJarByClass(DynamicTopN.class);
+        job.setJarByClass(TopNv3Dynamic.class);
 
         job.setMapperClass(TopNMapper.class);
         job.setReducerClass(TopNReducer.class);
