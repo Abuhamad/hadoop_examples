@@ -15,7 +15,7 @@ Save your MapReduce program in a Java file, for example WordCountV1.java.
 This folder have 
 - `WordCounV1.java` --> simple word count program
 - `WordCountV2.java` --> you can use arguments like `--skip` and `--wordcount.case.sensitive` 
-- `WordCountV3.java` --> you can use arguments like above and remove punctuations.
+- `WordCountV3.java` --> you can use arguments like `--wordcount.case.sensitive` and remove punctuations.
 
 2) Compile the Java Code
 ------------------------
@@ -39,19 +39,32 @@ Create a JAR file from the compiled classes:
 ------------------------
 Submit the job to Hadoop:
 
-	hadoop jar WordCount.jar WordCount /input /output
+	hadoop jar WordCount.jar WordCountV1 /input /output
 
 Parameters:
 
 - `WordCount.jar`: JAR file containing your MapReduce program.
-- `WordCount`: Main class name.
+- `WordCountV1`: Main class name.
 - `/input`: Input directory on HDFS.
 - `/output`: Output directory on HDFS (must not exist before running).
 
 
-Running `WordCountV2` or `WordCountV3` with arguments:
+Running `WordCountV2` with arguments:
 
-	hadoop jar WordCount.jar WordCountV3 -D wordcount.case.sensitive=false /input /output -skip /input/stopwords.txt
+	hadoop jar WordCount.jar WordCountV2 -Dwordcount.case.sensitive=false /input /output -skip /input/stopwords.txt
+
+
+Running `WordCountV3` with arguments:
+
+	hadoop jar WordCount.jar WordCountV3 -Dwordcount.case.sensitive=false /input /output /input/stopwords.txt
+
+- `WordCount.jar`: JAR file containing your MapReduce program.
+- `WordCountV3`: Main class name.
+- `/input`: Input directory (or specific file) on HDFS.
+- `/output`: Output directory on HDFS (must not exist before running).
+- `/input/stopwords.txt`: Skip patterns file on HDFS (must be on HDFS).
+
+
 
 5) Check the Output
 -------------------

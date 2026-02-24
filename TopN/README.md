@@ -12,13 +12,13 @@ Save your MapReduce program in a Java file. This folder includes:
 
 - TopN.java -> class `TopNv1` (single-job WordCount + naive top 20)
 - TopNv2.java -> class `TopNv2` (reads WordCount output, top 20)
-- TopNv3Dynamic.java -> class `DynamicTopN` (reads WordCount output, top N via -n)
+- TopNv3Dynamic.java -> class `TopNv3Dynamic` (reads WordCount output, top N via -n)
 
 2) Compile the Java Code
 ------------------------
 Use javac and include the Hadoop classpath:
 
-	javac -classpath "$(hadoop classpath)" -d . TopN.java 
+	javac -classpath "$(hadoop classpath)" -d . TopNv1.java 
 
 - `-classpath`: Adds Hadoop libraries to the compiler classpath.
 - `-d .`: Writes the compiled .class files to the current directory.
@@ -46,7 +46,7 @@ Create a JAR file from the compiled classes:
 
 `DynamicTopN` (expects WordCount output, choose N with -n):
 
-	hadoop jar TopN.jar DynamicTopN -n=50 /wordcount_out /topn_v3_out
+	hadoop jar TopN.jar TopNv3Dynamic -n=50 /wordcount_out /topn_v3_out
 
 **Notes:**
 
