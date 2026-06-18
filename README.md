@@ -1,7 +1,6 @@
 # hadoop_examples
 
-This repo collects small Hadoop MapReduce examples for learning and demos. Each
-folder focuses on a specific pattern and includes a README with build/run steps.
+This repo collects small Hadoop MapReduce examples for learning and demos. Each folder focuses on a specific pattern and includes a README with build/run steps.
 
 Included examples
 
@@ -15,3 +14,4 @@ Included examples
 Sample input data is in [Assets](Assets/)!
 
 You can build the hadoop cluster using [This Github Repo](https://github.com/Abuhamad/hadoop)!
+
