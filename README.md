@@ -3,7 +3,7 @@
 This repo collects small Hadoop MapReduce examples for learning and demos. Each
 folder focuses on a specific pattern and includes a README with build/run steps.
 
-Included examples
+## Included examples
 
 - [WordCount](WordCount/README.md): Word count implementations and a basic
 	compile/run walkthrough.
