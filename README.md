@@ -14,4 +14,4 @@ Included examples
 
 Sample input data is in [Assets](Assets/)!
 
-You can build the cluster using [This Github Repo](https://github.com/Abuhamad/hadoop)!
+You can build the hadoop cluster using [This Github Repo](https://github.com/Abuhamad/hadoop)!
