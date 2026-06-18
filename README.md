@@ -12,4 +12,4 @@ Included examples
 - [WeatherAnalysis](WeatherAnalysis/ReadMe.md): Monthly temperature statistics
 	and sorting results by mean temperature.
 
-Sample input data is in [Assets](Assets/).
+Sample input data is in [Assets](Assets/)!
